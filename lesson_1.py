@@ -7,7 +7,7 @@ time %= 60
 seconds = time
 print(f"{hour:02}:{minutes:02}:{seconds:02}")
 
-# # Третье задание
+# Третье задание
 n = input("Введиче число n: ")
 print(int(n) + int(n + n) + int(n + n + n))
 
@@ -21,7 +21,7 @@ while (i < len(x)):
     i += 1
 print(maximum)
 
-# # Пятое задание
+# Пятое задание
 proceeds = int(input("Введите выручку: "))
 costs = int(input("Введите издержки: "))
 
