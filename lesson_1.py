@@ -7,7 +7,7 @@ time %= 60
 seconds = time
 print(f"{hour:02}:{minutes:02}:{seconds:02}")
 
-# # Третье задание
+# Третье задание
 n = input("Введиче число n: ")
 print(int(n) + int(n + n) + int(n + n + n))
 
@@ -21,7 +21,7 @@ while (i < len(x)):
     i += 1
 print(maximum)
 
-# # Пятое задание
+# Пятое задание
 proceeds = int(input("Введите выручку: "))
 costs = int(input("Введите издержки: "))
 
@@ -36,7 +36,7 @@ elif proceeds == costs:
 else:
     print("У Вас убытки " + str(abs(proceeds - costs)))
 
-# # Задание шестое
+# Задание шестое
 a = int(input("Сколько составил результат в 1 день? "))
 b = int(input("Какого результата необходимо достигнуть? "))
 day = 1
