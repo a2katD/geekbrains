@@ -16,7 +16,9 @@ listed = [
     True,
     b'text',
     bytearray(b"some text"),
-    None
+    iter(['1', '3', '4']),
+    None,
+    int
 ]
 for types in listed:
     print(type(types))

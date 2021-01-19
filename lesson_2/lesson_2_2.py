@@ -11,3 +11,4 @@ while i < step:
     swap_list[i], swap_list[i + 1] = swap_list[i + 1], swap_list[i]
     i += 2
 print(swap_list)
+# переделать надо 2 вывода и значение вводить до пустой строки
