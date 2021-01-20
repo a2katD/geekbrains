@@ -2,6 +2,7 @@
 # Сообщить, к какому времени года относится месяц (зима, весна, лето, осень).
 # Напишите решения через list и dict.
 
+# через dict
 season_dict = {
     1: ['Январь', "Зима"],
     2: ['Февраль', "Зима"],
@@ -17,11 +18,36 @@ season_dict = {
     12: ['Декабрь', "Зима"]
 }
 while True:
-    month = input("Введите порядковый номер месяца: ")
-    if not month.isdigit() or int(month) > 12 or int(month) < 1:
+    month_dict = input("Введите порядковый номер месяца: ")
+    if not month_dict.isdigit() or int(month_dict) > 12 or int(month_dict) < 1:
         print("Введено некорректное значение, необходимо ввести число от 1 до 12, попробуйте еще раз")
     else:
-        month = int(month)
+        month_dict = int(month_dict)
         break
 print(
-    f"{month} по счёту идёт месяц {season_dict[month][0]} он принадележит к времени года: {season_dict[month][1]}")
+    f"{month_dict} по счёту идёт месяц {season_dict[month_dict][0]} он принадележит к времени года: {season_dict[month_dict][1]}")
+
+# через list
+season_list = [
+    ['Январь', "Зима"],
+    ['Февраль', "Зима"],
+    ['Март', "Весна"],
+    ['Апрель', "Весна"],
+    ['Май', "Весна"],
+    ['Июнь', "Лето"],
+    ['Июль', "Лето"],
+    ['Август', "Лето"],
+    ['Сентябрь', "Осень"],
+    ['Октябрь', "Осень"],
+    ['Ноябрь', "Осень"],
+    ['Декабрь', "Зима"]
+]
+while True:
+    month_list = input("Введите порядковый номер месяца: ")
+    if not month_list.isdigit() or int(month_list) > 12 or int(month_list) < 1:
+        print("Введено некорректное значение, необходимо ввести число от 1 до 12, попробуйте еще раз")
+    else:
+        month_list = int(month_list)
+        break
+print(
+    f"{month_list} по счёту идёт месяц {season_list[month_list - 1][0]} он принадележит к времени года: {season_list[month_list - 1][1]}")
