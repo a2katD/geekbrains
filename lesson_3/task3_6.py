@@ -6,7 +6,9 @@
 def int_func_title(word):
     return word.title()
 
+
 print(int_func_title(input("Введите слово:\n")))
+
 
 # Без title
 def int_func(string):
@@ -16,5 +18,6 @@ def int_func(string):
             string_list[i] = string_list[i][0].upper() + string_list[i][1:]
     string = " ".join(string_list)
     return string
+
 
 print(int_func(input("Введите предложение:\n")))

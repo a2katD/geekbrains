@@ -7,4 +7,6 @@ def user_info(name, surname, year_birth, sity, email, phone):
     print(f"""{surname} {name} родился в {year_birth} году в городе {sity}
 его адрес электронной почты: {email}, а телефон: {phone}""")
 
-user_info(phone="8(800)333-02-95", surname="Навальный",name="Алексей", year_birth=1976, email="fbk@fbk.info", sity="Москва")
+
+user_info(phone="8(800)333-02-95", surname="Навальный", name="Алексей", year_birth=1976, email="fbk@fbk.info",
+          sity="Москва")
