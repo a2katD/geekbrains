@@ -22,7 +22,7 @@ listed = [
     None,
     int,
     function,
-    (i for i in range(1))
+    [i for i in range(1)]
 ]
 for types in listed:
     print(type(types))
