@@ -21,7 +21,8 @@ listed = [
     iter(['1', '3', '4']),
     None,
     int,
-    function
+    function,
+    (i for i in range(1))
 ]
 for types in listed:
     print(type(types))
