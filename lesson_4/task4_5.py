@@ -8,10 +8,11 @@ from functools import reduce
 def multiplication(num_1, num_2):
     return num_1 * num_2
 
+
 num_list = [num for num in range(100, 1001, 2)]
 
 # или вот так
-#num_list = [num for num in range(100, 1001) if num % 2 == 0]
+# num_list = [num for num in range(100, 1001) if num % 2 == 0]
 
 print(num_list)
 print(reduce(multiplication, num_list))

@@ -10,6 +10,7 @@ def fact(n):
         rez = rez * i
         yield rez
 
+
 n = int(input("Введите число n: "))
 factorial = fact(n)
 for i in range(n):
