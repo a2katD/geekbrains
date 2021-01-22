@@ -7,4 +7,3 @@ i = 1
 for say in user_input:
     print(f'№{i} {say[0:10]}')
     i += 1
-print()
