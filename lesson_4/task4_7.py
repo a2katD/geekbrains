@@ -4,6 +4,9 @@
 # Она отвечает за получение факториала числа.
 # В цикле нужно выводить только первые n чисел, начиная с 1! и до n!.
 
+from itertools import count
+
+
 def fact(n):
     rez = 1
     for i in range(1, n + 1):
@@ -12,6 +15,7 @@ def fact(n):
 
 
 n = int(input("Введите число n: "))
-factorial = fact(n)
-for i in range(n):
-    print(f"Факториал числа {i + 1} = {next(factorial)}")
+i = 1
+for el in fact(n):
+    print(f"Факториал числа {i}! = {el}")
+    i += 1
