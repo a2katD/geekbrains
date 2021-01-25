@@ -10,9 +10,12 @@ def my_func_star(x, y):
 # Решение через цикл
 def my_func_cycle(x, y):
     rez = 1
-    for i in range(y):
+    for i in range(abs(y)):
         rez *= x
-    return rez
+    if y >= 0:
+        return rez
+    else:
+        return 1 / rez
 
 
 try:
