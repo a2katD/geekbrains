@@ -14,5 +14,5 @@ try:
 except:
     print("Ошибка, неверные параметры")
 else:
-    if division(dividend, divider):
+    if division(dividend, divider) != None:
         print(division(dividend, divider))

@@ -10,7 +10,7 @@ def int_func_title(word):
 print(int_func_title(input("Введите слово:\n")))
 
 
-# Без title
+#Без title
 def int_func(string):
     string_list = string.split()
     for i in range(len(string_list)):
@@ -18,6 +18,15 @@ def int_func(string):
             string_list[i] = string_list[i][0].upper() + string_list[i][1:]
     string = " ".join(string_list)
     return string
+
+# альтернативное решение
+# def int_func(string):
+#     string_list = []
+#     for word in string.split():
+#         if word[0].isalpha():
+#             string_list.append(str(word[0].upper() + word[1:]))
+#     string = " ".join(string_list)
+#     return string
 
 
 print(int_func(input("Введите предложение:\n")))
