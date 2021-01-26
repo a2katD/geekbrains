@@ -30,10 +30,10 @@ def int_func(string):
 #     string = " ".join(string_list)
 #     return string
 
-# через enumerate()
+#через enumerate()
 # def int_func(string):
 #     string_list = string.split()
-#     for i, word in string.split():
+#     for i, word in enumerate(string_list):
 #         if word[0].isalpha():
 #             string_list[i] = word[0].upper() + word[1:]
 #     string = " ".join(string_list)
