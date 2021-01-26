@@ -30,5 +30,15 @@ def int_func(string):
 #     string = " ".join(string_list)
 #     return string
 
+# через enumerate()
+# def int_func(string):
+#     string_list = string.split()
+#     for i, word in string.split():
+#         if word[0].isalpha():
+#             string_list[i] = word[0].upper() + word[1:]
+#     string = " ".join(string_list)
+#     return string
+
+
 
 print(int_func(input("Введите предложение:\n")))
