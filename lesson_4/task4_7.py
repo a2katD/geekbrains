@@ -12,7 +12,6 @@ def fact(n):
 
 
 n = int(input("Введите число n: "))
-i = 1
-for el in fact(n):
-    print(f"Факториал числа {i}! = {el}")
-    i += 1
+
+for i, el in enumerate(fact(n)):
+    print(f"Факториал числа {i + 1}! = {el}")
