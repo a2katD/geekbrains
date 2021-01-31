@@ -1,0 +1,18 @@
+[
+    {
+        "Rosnano": -4320000,
+        "Roskosmos": -7320000,
+        "Rosneft": -2070000,
+        "Aeroflot": 2490000,
+        "Russian_Railways": 1760000,
+        "Gazprom": 380000,
+        "Telegram": 2760000,
+        "FBK": 498000,
+        "Mail.ru": 2495000,
+        "Yandex": 4720000,
+        "MGTS": 610000
+    },
+    {
+        "average_profit": 1964125
+    }
+]
