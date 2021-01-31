@@ -18,5 +18,6 @@ json_object = list()
 json_object.append(profit)
 json_object.append(average)
 
+
 with open("task5_7.json", "w", encoding="utf-8") as js:
-    dump(json_object, js, indent=4)
+    dump(json_object, js, ensure_ascii=False, indent=4)
