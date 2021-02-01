@@ -1,2 +1,7 @@
-with open("task5_1.txt","w", encoding="utf-8") as f:
-    f.write(input("Введите текст: "))
+# Создать программно файл в текстовом формате,
+# записать в него построчно данные, вводимые пользователем.
+# Об окончании ввода данных свидетельствует пустая строка.
+
+with open("task5_1.txt", "w", encoding="utf-8") as f:
+    while string := input():
+        f.write(string + "\n")
