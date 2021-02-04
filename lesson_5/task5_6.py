@@ -5,12 +5,15 @@
 # Сформировать словарь, содержащий название предмета и общее количество занятий по нему.
 # Вывести словарь на экран.
 
+from re import sub
+
+
 def atoi(word):
     num = []
     for i in word.lstrip():
         if i.isdigit():
             num.append(i)
-    return "".join(num)
+    return int("".join(num))
 
 
 def sum_parser(string):
@@ -18,13 +21,12 @@ def sum_parser(string):
     words = string.split()
     for word in words:
         if word[0].isdigit():
-            total += int(atoi(word))
+            total += atoi(word)
     return total
 
 
 journal = dict()
 with open("task5_6.txt", "r", encoding="utf-8") as f:
     for string in f:
-        total = sum_parser(string)
-        journal[(string.split()[0][:-1])] = total
+        journal[sub(":", "", (string.split()[0]))] = sum_parser(string)
 print(journal)
