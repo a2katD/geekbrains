@@ -8,7 +8,7 @@ class Worker:
 
 class Position(Worker):
     def get_full_name(self):
-        print(f"{self.surname} {self.surname}")
+        print(f"{self.surname} {self.name}")
 
     def get_total_income(self):
         wage = self._income.get("wage")
@@ -18,3 +18,4 @@ class Position(Worker):
 
 p = Position("Павел", "Воронов", "ИП", {"wage": 1000, "bonus": 500})
 p.get_total_income()
+p.get_full_name()
