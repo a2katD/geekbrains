@@ -8,11 +8,11 @@
 # (создать экземпляры класса Position, передать данные, проверить значения атрибутов, вызвать методы экземпляров).
 
 class Worker:
-    def __init__(self, name, surname, position, _income):
+    def __init__(self, name, surname, position, wage, bonus):
         self.name = name
         self.surname = surname
         self.position = position
-        self._income = _income
+        self._income = {'wage': wage, 'bonus': bonus}
 
 
 class Position(Worker):
@@ -25,6 +25,6 @@ class Position(Worker):
         print(f"Доход с учетом премии {wage + bonus}")
 
 
-p = Position("Павел", "Воронов", "ИП", {"wage": 1000, "bonus": 500})
+p = Position("Павел", "Воронов", "ИП", 1000, 500)
 p.get_total_income()
 p.get_full_name()
