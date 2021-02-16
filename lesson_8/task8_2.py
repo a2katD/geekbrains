@@ -2,17 +2,16 @@
 # Проверьте его работу на данных, вводимых пользователем.
 # При вводе нуля в качестве делителя программа должна корректно обработать эту ситуацию и не завершиться с ошибкой.
 
-class MyBadNameError(Exception):
-    pass
-    # def __init__(self, dividend, divider):
-    #     self.dividend = dividend
-    #     self.divider = divider
+class ZeroError(Exception):
+    @staticmethod
+    def zero_error():
+        print(f"На ноль делить нельзя")
 
 
 dividend = int(input('Введите делимое: '))
 divider = int(input('Введите делитель: '))
 
 try:
-    print(dividend/divider)
+    print(dividend / divider)
 except:
-    MyBadNameError()
+    ZeroError.zero_error()
