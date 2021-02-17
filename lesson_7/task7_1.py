@@ -19,7 +19,7 @@ class Matrix:
                         new_matrix[index_1].append(other[index_1][index_2])
                     else:
                         new_matrix[index_1][index_2] += other[index_1][index_2]
-        return new_matrix
+        return Matrix(new_matrix)
 
     def __getitem__(self, index):
         return self.matrix_list[index]
@@ -34,6 +34,5 @@ class Matrix:
 
 m = Matrix([[1, 2, 3], [4, 5, 6]])
 b = Matrix([[7, 8, 9, 5], [10, 11, 12, 5], [20, 30, 40, 50]])
-print(m)
-print(b)
-print(m + b)
+c = m + b
+print(c)
