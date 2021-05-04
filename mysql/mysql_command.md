@@ -3,11 +3,14 @@ SHOW DATABASES; - показывает какие есть БД
 SHOW VARIABLES LIKE 'datadir'; - показывает директорию где хранятся БД
 DROP DATABASES <name>; - удаляет базу данных
 
+#Загрузки базы данны через консоль линукса
+mysql <name_databases> < <путь к файлу>
+
 USE <name>; - выбирает базу данных
-show tables; - показывает таблицы
-create table <name-table>; - создает таблицу
-create table if not exists <name-table>; - создает таблицу если еще не существует
-describe <name-table> ;- показывает структуру таблицы
+SHOW TABLES; - показывает таблицы
+CREATE TABLE <name-table>; - создает таблицу
+CREATE TABLE IF NOT EXISTS <name-table>; - создает таблицу если еще не существует
+DESCRIBE <name-table> ;- показывает структуру таблицы
 
 CREATE TABLE <name> (id INT(8)); - создает таблицу с инт значение в 8 символов(ведушие пробиелы)
 CREATE TABLE <name> (id INT(8) ZEROFILL);  - тоже самое но ведушие нули
@@ -16,6 +19,14 @@ CREATE TABLE <name> (id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT);
 # SERIAL == BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE
 CREATE TABLE <name> (id SERIAL PRIMARY KEY); - тоже самое но коротко
 
+
+
+CREATE TEMPORARY TABLE <name> - создает временную таблицу
+
+
+SELECT RAND(); - возвращает случайное значение от 0 до 1
+SELECT <name> FROM <name_table> ORDER BY RAND() LIMIT 1;
+# возвращает 1 случайное значение из таблицы
 
 INSERT INTO <name> VALUES (5); - помещает в таблицу значение 5
 CREATE TABLE <name> (id DECIMAL(7,4)); - точные данные, всего 7, 4 из них после запятой
@@ -36,6 +47,9 @@ SELECT '2018-10-01 0:00:00 + INTERVAL '1-1' YEAR_MONTH'; - добавляет 1 
 ENUM - одно значение из списка
 SET -  комбинаций значений из списка
 
+ALTER TABLE <name_table> ADD COLUMN <name_column> <тип строки> AFTER <name_colum>
+# Добавляет в таблицу строку, после определенной строки
+
 ALTER TABLE tbl ADD collect JSON; - создает коллекцию JSON
 INSERT INTO tbl VALUES (1, '{"first": "HELLO", "second": "WORLD"}');
 # добавляет значение в коллекцию
@@ -50,3 +64,9 @@ CREATE INDEX index_of_catalog_id USING BTREE ON products (catalog_id);
 # явно требуем использовать ИНДЕКС как бинарное дерево
 CREATE INDEX index_of_catalog_id USING HASH ON products (catalog_id);
 # явно требуем использовать ИНДЕКС как хеш
+
+CRUD:
+Create - INSERT
+Read   - SELECT
+Update - UPDATE
+Delete - DELETE
