@@ -1,16 +1,20 @@
+#Загрузки базы данны через консоль линукса
+mysql <name_databases> < <путь к файлу>
+#Выгрузка дампа базы данных через консоль линукса
+mysqldump <name_databases> > <путь к файлу>.sql
+
+################# Работа с БД ########################
 CREATE DATABASE <name>; - создает БД
 SHOW DATABASES; - показывает какие есть БД
 SHOW VARIABLES LIKE 'datadir'; - показывает директорию где хранятся БД
 DROP DATABASES <name>; - удаляет базу данных
-
-#Загрузки базы данны через консоль линукса
-mysql <name_databases> < <путь к файлу>
-
 USE <name>; - выбирает базу данных
+
+################# Работа с Таблицами ########################
 SHOW TABLES; - показывает таблицы
-CREATE TABLE <name-table>; - создает таблицу
+CREATE TABLE <name_table>; - создает таблицу
 CREATE TABLE IF NOT EXISTS <name-table>; - создает таблицу если еще не существует
-DESCRIBE <name-table> ;- показывает структуру таблицы
+DESCRIBE <name_table> ;- показывает структуру таблицы
 
 CREATE TABLE <name> (id INT(8)); - создает таблицу с инт значение в 8 символов(ведушие пробиелы)
 CREATE TABLE <name> (id INT(8) ZEROFILL);  - тоже самое но ведушие нули
@@ -19,39 +23,41 @@ CREATE TABLE <name> (id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT);
 # SERIAL == BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE
 CREATE TABLE <name> (id SERIAL PRIMARY KEY); - тоже самое но коротко
 
-
-
 CREATE TEMPORARY TABLE <name> - создает временную таблицу
 
-
+################# CRUD операции ######################
+#SELECT - Показать
 SELECT RAND(); - возвращает случайное значение от 0 до 1
 SELECT <name> FROM <name_table> ORDER BY RAND() LIMIT 1;
 # возвращает 1 случайное значение из таблицы
 
+#INSERT - Вставить
 INSERT INTO <name> VALUES (5); - помещает в таблицу значение 5
 CREATE TABLE <name> (id DECIMAL(7,4)); - точные данные, всего 7, 4 из них после запятой
 
+#UPDATE - обновить
+UPDATE <name_table> SET <name_column> = 'значение'; - обновляет столбец name_column в таблице name_table на "значение"
+
+#DELETE
+
+#DROP - Удалить
 DROP TABLE <name> - удаляет таблицу, если её нет = ошибка
 DROP TABLE IF EXISTS <name> - удаляет таблицу если она существует
 TRUCATE <name>; - очищает таблицу
 
+#ALTER - Изменить тип данных ячеек
 ALTER TABLE <name> CHANGE <id> <id> INT UNSIGNED NOT NULL; - изменяет поле <id> таблицы <name>
 ALTER TABLE <name> RENAME <name_new>; - ппереименовывает таблицу
-
-DESCRIBE <name>\G - показывает структуру таблицы (\G показывает вертикально)
-
+ALTER TABLE <name_table> ADD COLUMN <name_column> <тип строки> AFTER <name_colum> ###### тут разобраться ##############
+# Добавляет в таблицу строку, после определенной строки
+ALTER TABLE tbl ADD collect JSON; - создает коллекцию JSON (столбец)
+INSERT INTO tbl VALUES (1, '{"first": "HELLO", "second": "WORLD"}'); - добавляет значение в коллекцию
+SELECT collect->>"$.first" FROM tbl;
+# Обращается по ключу JSON
 
 ENUM - одно значение из списка
 SET -  комбинаций значений из списка
 
-ALTER TABLE <name_table> ADD COLUMN <name_column> <тип строки> AFTER <name_colum>
-# Добавляет в таблицу строку, после определенной строки
-
-ALTER TABLE tbl ADD collect JSON; - создает коллекцию JSON
-INSERT INTO tbl VALUES (1, '{"first": "HELLO", "second": "WORLD"}');
-# добавляет значение в коллекцию
-SELECT collect->>"$.first" FROM tbl;
-# Обращается по ключу JSON
 
 CREATE INDEX index_of_catalog_id ON products (catalog_id);
 # Добавляет ИНДЕКС значаниею каталог_ид в таблице Продукты
@@ -62,7 +68,6 @@ CREATE INDEX index_of_catalog_id USING BTREE ON products (catalog_id);
 CREATE INDEX index_of_catalog_id USING HASH ON products (catalog_id);
 # явно требуем использовать ИНДЕКС как хеш
 
-<<<<<<< HEAD
 ############## РАБОТА С ДАТАМИ ########################
 SELECT '2018-10-01 0:00:00'; - формат вставляемой даты
 SELECT '2018-10-01 0:00:00 + INTERVAL 1 DAT'; - добавляет 1 день к указанной дате
@@ -126,23 +131,6 @@ SELECT '1' RLIKE '^[0-9]+$'; - ищет любые цифры с начала с
 ищет точку, затем любые 2 цифры с привязкой к концу строки
 #######################################################
 
-############### СОРТИРОВКА ############################
-ORDER BY - сортировка по столбцу, можно указать несколько значений
-DESC - обратная сортировка, пишется в конце
-#SELECT * FROM catalog ORDER BY name DESC;
-
-LIMIT - Ограничивает количество извлекаемых записей
-LIMIT 2, 4 - извлекает 4 записи, начиная со ТРЕТЬЕЙ!
-LIMIT 4 OFFSET 4 - тоже самое
-
-DISTINCT - показывает только уникальные записи, пишется перед именем столбцы
-#SELECT DISTINCT catalog FROM products ORDER BY catalog_id;
-ALL - выводит ВСЕ значения столбца(стоит по умолчанию)
-
-Остановился на 29:40 5 урок
-Далее:
-4 часть предопределенные фунеции часть 1
-
 ########### ПРЕДОПРЕДЕЛЕННЫЕ ФУНКЦИИ #################
 NOW() - функция возвращает текущую дату и время
 DATE() - Фунеция возвращает только дату
@@ -182,7 +170,7 @@ CONCAT() - соединяет строки
 
 IF() - принимает 3 значения через запятую, условие, если истина, если лож
 #SELECT IF('Условие', 'в случае тру', 'в случае фолс')
-CASE() - многозадачное условие, пример
+CASE() - многозадачное условие, пример:
 SELECT 
   CASE
     WHEN color = 'red' THEN 'красный'
@@ -197,6 +185,19 @@ INET_NTOA ('3232235777') - обратная фунеция
 UUID() - уникальный универсальный идентификатор
 ######################################################
 
+############### СОРТИРОВКА ############################
+ORDER BY - сортировка по столбцу, можно указать несколько значений
+DESC - обратная сортировка, пишется в конце
+#SELECT * FROM catalog ORDER BY name DESC;
+
+LIMIT - Ограничивает количество извлекаемых записей
+LIMIT 2, 4 - извлекает 4 записи, начиная со ТРЕТЬЕЙ!
+LIMIT 4 OFFSET 4 - тоже самое
+
+DISTINCT - показывает только уникальные записи, пишется перед именем таблицы
+#SELECT DISTINCT catalog FROM products ORDER BY catalog_id;
+ALL - выводит ВСЕ значения столбца(стоит по умолчанию)
+
 ################ ГРУППИРОВКА ДАННЫХ ##################
 GROUP BY - группирует данные, пример
 SELECT catalog_id FROM products GROUP BY catalog_id
@@ -208,4 +209,13 @@ HEVING = WHERE, идёт после конструкции GROUP BY
 ANY_VALUE = случайное значение
 WITH ROLLUP - последняя результирующая строка, с количествоим всех пользователей. NULL во все остальные столбцы
 
+################ СОЗДАНИЕ СВЯЗЕЙ ###################
+ALTER TABLE profiles  - изменить таблицу профили
+  ADD CONSTRAINT profiles_user_id_fk - добавить ключ
+    FOREIGN KEY (user_id) REFERENCES users(id) - для колонки узер_ид, ссылающийся на таблицу юзер, колонку ид
+      ON DELETE CASCADE; - в случае если нет - удалить
+#     ON DELETE RESTRICT; - не позволит удалить, пока есть связи
 
+
+При обращении к другой таблице синтаксис такой:
+UPDATE <имя в какой таблице> SET <имя столбца> = 
