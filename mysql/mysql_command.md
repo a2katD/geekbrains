@@ -90,8 +90,16 @@ NOT - не
 IN - в
 #SELECT * FROM tbl WHERE id IN (1,2,5);
 WHERE - ГДЕ! условие, которое выполняется, если получает TRUE
+ON - тоже самое что WHERE но исльзуется при соединении таблиц, происходит ДО соединения
 BETWEEN - возвращает TRUE или FALSE, если значение входит в диапазон
 #SELECT 2 BETWEEN 2 AND 4; - Вернёт 1
+
+ANY = SOME - хотябы одно условие истина = истина, пример:
+#SELECT name FROM products WHERE price < ANY(SELECT price FROME products WHERE catalog_id = 1)
+ALL - все условия истина = истина, ичаче лож
+#SELECT name FROM products WHERE price < ALL(SELECT price FROME products WHERE catalog_id = 1)
+EXISTS
+
 
 LIKE - всё равно что равно, отличие в том, что поддерживает спецсимволы
 % - спецсимвол - заменяет любое количество символов
